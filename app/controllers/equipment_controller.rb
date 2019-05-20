@@ -1,8 +1,10 @@
-class EquipmentsController < ApplicationController
+class EquipmentController < ApplicationController
   def index
+    @equipment = Equipment.all
   end
 
   def new
+    @equipment =  Equipment.new
   end
 
   def show
