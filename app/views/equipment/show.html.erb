@@ -1,3 +1,5 @@
 <h1><%= @equipment.name %></h1>
 <p><%= @equipment.description %></p>
 <%= link_to "All Equipment", equipment_index_path %>
+<%= link_to "Edit", edit_equipment_path %>
+<%= link_to "Destroy", equipment_path, method: "delete" %>
