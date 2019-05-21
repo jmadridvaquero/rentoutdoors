@@ -1,8 +1,14 @@
-<h1>Edit <%= @equipment.name %></h1>
-<%= simple_form_for @equipment do |f| %>
-  <%= f.input :name %>
-  <%= f.input :sport %>
-  <%= f.input :description %>
-  <%= f.submit "Change", class: "btn btn-primary"%>
-<% end %>
-<%= link_to "Back", equipment_path(@equipment) %>
+<div class="container">
+  <h1>Edit <%= @equipment.name %></h1>
+  <%= simple_form_for @equipment do |f| %>
+    <%= f.input :name %>
+    <%= f.select :sport, Equipment::SPORTS %>
+    <%= f.input :price %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :description %>
+    <%= f.submit "Change", class: "btn btn-primary"%>
+  <% end %>
+  <br>
+  <%= link_to "Back", equipment_path(@equipment), class: "btn btn-primary" %>
+</div>
