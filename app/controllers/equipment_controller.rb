@@ -3,6 +3,7 @@ class EquipmentController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+      @equipment = policy_scope(Equipment).order(created_at: :desc)
     # @equipment = Equipment.all
     if params[:name] || params[:sport]
       @equipment = Equipment.where('name ILIKE ?', "%#{params[:name]}%")
@@ -13,13 +14,16 @@ class EquipmentController < ApplicationController
   end
 
   def new
+    authorize @equipment
     @equipment =  Equipment.new
   end
 
   def show
+     authorize @equipment
   end
 
   def create
+    authorize @equipment
     @equipment = Equipment.new(equipment_allowed_params)
     @user = current_user
     @equipment.user = @user
@@ -31,6 +35,7 @@ class EquipmentController < ApplicationController
   end
 
   def edit
+     authorize @equipment
   end
 
   def update

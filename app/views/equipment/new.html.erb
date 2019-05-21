@@ -12,3 +12,6 @@
   <br>
   <%= link_to "Equipment List", equipment_index_path, class: "btn btn-primary" %>
 </div>
+<% if policy(Equipment).create? %>
+  <%= link_to "New equipment", new_equipment_path %>
+<% end %>
