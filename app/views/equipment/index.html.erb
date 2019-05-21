@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1515569045695-3b8a5db84e22?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2878&q=80);">
   <div class="container">
     <%= form_tag(equipment_index_path, method: :get) do %>
-      Equipment <%= text_field_tag :name %> <br>
-      Sport-Category <%= select_tag "sport", options_for_select(Equipment::SPORTS, "Category")  %> <br>
+      <h3 style="color: white">Equipment</h3> <%= text_field_tag :name %>
+      <h3 style="color: white">Sport-Category</h3> <%= select_tag "sport", options_for_select(Equipment::SPORTS, "Category")  %> <br>
       <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
     <% end %>
   </div>
