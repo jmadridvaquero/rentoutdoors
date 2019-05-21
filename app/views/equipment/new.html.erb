@@ -2,7 +2,7 @@
   <h1>Create a new equipment</h1>
   <%= simple_form_for @equipment do |f| %>
     <%= f.input :name %>
-    <%= f.input :sport %>
+    <%= f.select :sport, Equipment::SPORTS %>
     <%= f.input :description %>
     <%= f.submit "Create", class: "btn btn-primary"%>
   <% end %>
