@@ -2,7 +2,7 @@
   <h1>Create a new equipment</h1>
   <%= simple_form_for @equipment do |f| %>
     <%= f.input :name %>
-    <%= f.input :sport, as: :select, collection: Equipment::SPORTS %>
+    <%= f.select :sport, Equipment::SPORTS %>
     <%= f.input :price %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
