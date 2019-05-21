@@ -1,9 +1,42 @@
-<h1>Equipments#index</h1>
-<ul>
-  <% @equipment.each do |equipment| %>
-    <li> <%= link_to "#{equipment.name}", equipment_path(equipment) %></li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <%= form_tag(equipment_index_path, method: :get) do %>
+      Equipment <%= text_field_tag :name %> <br>
+      Sport-Category <%= select_tag "sport", options_for_select(Equipment::SPORTS, "Category")  %> <br>
+      <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+  <h1>Your equipment</h1>
+    <div class="row">
+      <% @equipment.each do |equipment|%>
+      <div class="col-sm">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= link_to equipment.name, equipment_path(equipment) %> <br>
+        </div>
+      </div>
+    <% end %>
+    </div>
+</div>
+
 <%= link_to "Sign up", new_user_registration_path %>
-<br>
 <%= link_to "List your equipment", new_equipment_path %>
+
+
+<!-- <div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+ -->
+

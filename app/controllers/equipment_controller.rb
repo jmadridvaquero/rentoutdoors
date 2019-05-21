@@ -1,6 +1,11 @@
 class EquipmentController < ApplicationController
   def index
-    @equipment = Equipment.all
+    # @equipment = Equipment.all
+    if params[:name] || params[:sport]
+      @equipment = Equipment.where('name ILIKE ? or sport ILIKE ?', "%#{params[:name]}%", "#{params[:sport]}")
+    else
+      @equipment = Equipment.all
+    end
   end
 
   def new
