@@ -28,27 +28,29 @@ class EquipmentController < ApplicationController
     @user = current_user
     @equipment.user = @user
     if @equipment.save
-      redirect_to equipment_path(@equipment)
+      redirect_to equipment_path(@equipment), notice: "Listing was successfully created!"
     else
       render :new
     end
   end
 
   def edit
-     authorize @equipment
+   authorize @equipment
   end
 
   def update
     if @equipment.update(equipment_allowed_params)
-      redirect_to equipment_path(@equipment)
+      redirect_to equipment_path(@equipment), notice: "Listing was successfully updated!"
     else
       render :edit
     end
+    authorize @equipment
   end
 
   def destroy
     @equipment.destroy
-    redirect_to equipment_index_path
+    redirect_to equipment_index_path, notice: "Listing was successfully destroyed!"
+    authorize @equipment
   end
 
   private

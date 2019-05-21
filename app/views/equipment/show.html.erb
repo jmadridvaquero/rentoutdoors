@@ -1,5 +1,9 @@
 <h1><%= @equipment.name %></h1>
 <p><%= @equipment.description %></p>
 <%= link_to "All Equipment", equipment_index_path %>
+<% if policy(@equipment).edit? %>
 <%= link_to "Edit", edit_equipment_path %>
-<%= link_to "Destroy", equipment_path, method: "delete" %>
+<% end %>
+<% if policy(@equipment).destroy? %>
+<%= link_to "Destroy", equipment_path, method: "delete", data: { confirm: "Do you want to delete?"} %>
+<% end %>
