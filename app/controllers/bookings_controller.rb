@@ -1,11 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :find_equipment, only: [:new, :create]
+  before_action :set_equipment, only: [:show, :destroy]
+
   def new
     @booking = Booking.new
   end
 
   def create
-    @booking = Booking.new(params_booking)
+    @booking = Booking.new(booking_allowed_params)
+    @user = current_user
+    @booking.user = @user
     if @booking.save
       redirect_to equipment_bookings_path(@equipment)
     else
@@ -21,11 +24,12 @@ class BookingsController < ApplicationController
 
   private
 
-  def params_booking
-    Booking.find(params[:id])
+
+  def set_equipment
+    @equipment = Equipment.find(params[:equipment_id])
   end
 
-  def find_equipment
-    Equipment.find(params[:id])
+  def booking_allowed_params
+    params.require(:booking).permit(:date, :description, :equipment, :user)
   end
 end
