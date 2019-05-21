@@ -11,8 +11,11 @@
 </div>
 
 <div class="container">
+  <h1>Your equipment</h1>
+  <%= render partial: "shared/index-cards", object: @equipment%>
+=======
   <h2>Equipment available for rent:</h2>
-  <%= render partial: "shared/cards", object: @equipment%>
+  <%= render partial: "shared/index-cards", object: @equipment%>
   <br>
   <%if user_signed_in? %>
     <p><%= link_to "Add your equipment", new_equipment_path, class: "btn btn-primary" %></p>
