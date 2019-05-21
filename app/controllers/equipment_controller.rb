@@ -14,8 +14,8 @@ class EquipmentController < ApplicationController
   end
 
   def new
-    authorize @equipment
     @equipment =  Equipment.new
+    authorize @equipment
   end
 
   def show
@@ -23,8 +23,8 @@ class EquipmentController < ApplicationController
   end
 
   def create
-    authorize @equipment
     @equipment = Equipment.new(equipment_allowed_params)
+    authorize @equipment
     @user = current_user
     @equipment.user = @user
     if @equipment.save
