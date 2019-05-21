@@ -1,4 +1,5 @@
 class Equipment < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :user
 
   SPORTS = ["Category","Basketball", "Soccer", "Cricket", "Ballet", "Kayaking", "Rockclimbing",
