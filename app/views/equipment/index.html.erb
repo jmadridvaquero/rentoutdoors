@@ -10,20 +10,7 @@
 
 <div class="container">
   <h1>Your equipment</h1>
-  <div class="cards">
-    <% @equipment.each do |equipment|%>
-      <div class="card-equipment">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
-        <div class="card-equipment-info">
-          <div>
-            <h2><%= link_to equipment.name, equipment_path(equipment) %></h2>
-            <p><%= equipment.description %></p>
-          </div>
-          <h2>$<%= equipment.price %></h2>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: "shared/cards", object: @equipment%>
   <br>
   <p><%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %></p>
   <p><%= link_to "Add your equipment", new_equipment_path, class: "btn btn-primary" %></p>
