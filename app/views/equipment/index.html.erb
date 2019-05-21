@@ -12,7 +12,7 @@
 
 <div class="container">
   <h1>Your equipment</h1>
-  <%= render partial: "shared/cards", object: @equipment%>
+  <%= render partial: "shared/index-cards", object: @equipment%>
   <br>
   <p><%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %></p>
   <p><%= link_to "Add your equipment", new_equipment_path, class: "btn btn-primary" %></p>
