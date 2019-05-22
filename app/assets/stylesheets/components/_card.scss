@@ -3,6 +3,9 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+.cards a:hover{
+  text-decoration: none;
+}
 .card-equipment {
   overflow: hidden;
   background: white;
@@ -21,11 +24,13 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: black;
 }
 .card-equipment p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  color: black;
 }
 .card-equipment .card-equipment-info {
   padding: 16px;
@@ -50,4 +55,8 @@
 }
 .card-form .btn{
   margin-top: 16px;
+}
+.booking-card{
+  padding: 16px;
+  border: 1px solid #e4e4e4;
 }
