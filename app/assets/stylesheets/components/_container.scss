@@ -1,0 +1,9 @@
+.show-container{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 16px;
+}
+.equipment-price{
+  display: flex;
+  border-bottom: 1px solid #e4e4e4;
+}
