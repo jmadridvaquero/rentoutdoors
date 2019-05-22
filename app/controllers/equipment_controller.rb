@@ -20,7 +20,7 @@ class EquipmentController < ApplicationController
 
   def show
      authorize @equipment
-     @marker = {lat: @equipment.latitude,lng: @equipment.longitude}
+     @marker = {lat: @equipment.latitude, lng: @equipment.longitude}
   end
 
   def create
