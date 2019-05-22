@@ -7,6 +7,11 @@
 <% if policy(@equipment).destroy? %>
 <%= link_to "Destroy", equipment_path, method: "delete", data: { confirm: "Do you want to delete?"} %>
 <% end %>
+<%= simple_form_for [@equipment, @booking] do |f| %>
+<%= f.input :start_date, { html5: true} %>
+<%= f.input :end_date, { html5: true} %>
+<%= f.submit %>
+<% end %>
 
 
 <div class="container">
