@@ -22,6 +22,14 @@ class EquipmentController < ApplicationController
      authorize @equipment
   end
 
+  #the action below is to put in the show action above. I dont do it now to avoid conflicts
+  def add_to_show_controller
+    # @equipment = Equipment.where.not(latitude: nil, longitude: nil)
+    @marker = {lat: @equipment.latitude,lng: @equipment.longitude}
+  end
+
+
+
   def create
     @equipment = Equipment.new(equipment_allowed_params)
     authorize @equipment
