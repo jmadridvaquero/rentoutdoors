@@ -1,3 +1,4 @@
+
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= cl_image_path @equipment.photo %>)">
 </div>
 <div class="container show-container">
@@ -18,6 +19,7 @@
       <p>per day</p>
     </div>
   </div>
+
 <div class="container">
   <div
     id="map"
@@ -27,3 +29,8 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
 </div>
+<%= simple_form_for [@equipment, @booking] do |f| %>
+<%= f.input :start_date, { html5: true} %>
+<%= f.input :end_date, { html5: true} %>
+<%= f.submit %>
+<% end %>

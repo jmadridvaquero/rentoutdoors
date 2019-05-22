@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_equipment, only: [:show, :destroy]
+  before_action :set_equipment, only: [:show, :destroy, :create]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -17,8 +17,9 @@ class BookingsController < ApplicationController
     authorize @booking
     @user = current_user
     @booking.user = @user
-    if @booking.save
-      redirect_to equipment_bookings_path(equipment)
+    @booking.equipment = @equipment
+    if @booking.save!
+      redirect_to equipment_bookings_path(@equipment)
     else
       render :new
     end
@@ -38,6 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_allowed_params
-    params.require(:booking).permit(:start_date, :end_date, :description, :equipment, :user)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
