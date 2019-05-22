@@ -1,9 +1,22 @@
-<h1><%= @equipment.name %></h1>
-<p><%= @equipment.description %></p>
-<%= link_to "All Equipment", equipment_index_path %>
-<% if policy(@equipment).edit? %>
-<%= link_to "Edit", edit_equipment_path %>
-<% end %>
-<% if policy(@equipment).destroy? %>
-<%= link_to "Destroy", equipment_path, method: "delete", data: { confirm: "Do you want to delete?"} %>
-<% end %>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= cl_image_path @equipment.photo %>)">
+</div>
+<div class="container show-container">
+  <div class="equipment-info">
+    <h1><%= @equipment.name %></h1>
+    <p><%= @equipment.description %></p>
+    <p><%= @equipment.sport %></p>
+    <% if policy(@equipment).edit? %>
+    <%= link_to "Edit", edit_equipment_path, class: "btn btn-primary" %>
+    <% end %>
+    <% if policy(@equipment).destroy? %>
+    <%= link_to "Destroy", equipment_path, method: "delete", data: { confirm: "Do you want to delete?"}, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="booking-card">
+    <div class="container equipment-price">
+      <h5>$<%= @equipment.price %></h5>
+      <br>
+      <p>per day</p>
+    </div>
+  </div>
+</div>
