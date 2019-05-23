@@ -6,13 +6,10 @@
     <%= f.input :price %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.input :description %>
     <%= f.input :address %>
+    <%= f.input :description %>
     <%= f.submit "Create", class: "btn btn-primary"%>
   <% end %>
   <br>
   <%= link_to "Equipment List", equipment_index_path, class: "btn btn-primary" %>
 </div>
-<% if policy(Equipment).create? %>
-  <%= link_to "New equipment", new_equipment_path %>
-<% end %>
