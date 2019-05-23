@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.equipment = @equipment
     if @booking.save!
-      redirect_to equipment_bookings_path(@equipment)
+      redirect_to profile_path
     else
       render :new
     end

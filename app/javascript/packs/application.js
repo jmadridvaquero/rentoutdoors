@@ -11,7 +11,7 @@ initMapbox();
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 initSweetalert('#booking-confirmation', {
-  title: "Your booking has been sent to the equipment owner?",
+  title: "Are you sure you want to book this item?",
   text: "Once confirmed by owner, you will receive a notification",
   icon: "success",
   buttons: true,
