@@ -15,16 +15,18 @@ class EquipmentController < ApplicationController
 
   def new
     @equipment =  Equipment.new
+    @equipment_attachment = @equipment.equipment_attachments.build
     authorize @equipment
   end
 
   def show
     authorize @equipment
-    
+
       @marker = {
           lat: @equipment.latitude,
           lng: @equipment.longitude,
           # infoWindow: render_to_string(partial: "infowindow", locals: { equipment: @equipment })
+           image_url: helpers.asset_url('rond.png')
         }
      @booking = Booking.new
   end
@@ -32,13 +34,17 @@ class EquipmentController < ApplicationController
   def create
     @equipment = Equipment.new(equipment_allowed_params)
     authorize @equipment
-    @user = current_user
-    @equipment.user = @user
+    @equipment.user = current_user
+
     if @equipment.save
+      params[:equipment_attachments]['photo'].each do |a|
+         @equipment_attachment = @equipment.equipment_attachments.create!(:photo => a, :equipment_id => @equipment.id)
+      end
       redirect_to equipment_path(@equipment), notice: "Listing was successfully created!"
     else
       render :new
     end
+
   end
 
   def edit
@@ -47,6 +53,9 @@ class EquipmentController < ApplicationController
 
   def update
     if @equipment.update(equipment_allowed_params)
+      params[:equipment_attachments]['photo'].each do |a|
+         @equipment_attachment = @equipment.equipment_attachments.create!(:photo => a, :equipment_id => @equipment.id)
+      end
       redirect_to equipment_path(@equipment), notice: "Listing was successfully updated!"
     else
       render :edit
@@ -67,6 +76,6 @@ class EquipmentController < ApplicationController
   end
 
   def equipment_allowed_params
-    params.require(:equipment).permit(:name, :sport, :description, :address, :price, :photo)
+    params.require(:equipment).permit(:name, :sport, :description, :address, :price, equipment_attachments_attributes: [:id, :equipment_id, :photo])
   end
 end

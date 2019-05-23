@@ -2,7 +2,7 @@
   <% @equipment.each do |equipment|%>
     <%= link_to equipment_path(equipment) do %>
     <div class="card-equipment">
-      <%= cl_image_tag equipment.photo %>
+      <%= cl_image_tag equipment.equipment_attachments.first&.photo %>
       <div class="card-equipment-info">
         <div>
           <h2><%= equipment.name %></h2>
