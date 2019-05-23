@@ -1,1 +1,33 @@
-// Specific CSS for your home-page
+#search-box{
+	margin-bottom: 80px;
+	max-width: 800px;
+	margin: auto;
+	input {
+		height: 50px;
+		width: 300px;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 10px;
+	}
+	::placeholder {
+	text-align: center;	
+	font-size: 22px;
+	}
+}
+
+#homepage-banner {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ h1 {
+ 	font-size: 64px;
+ }
+ h2 {
+ 	font-size: 48px;
+ }
+}
+
+@media (min-width: 956px) {
+	#search-box input{
+		width: 600px;
+	}
+}

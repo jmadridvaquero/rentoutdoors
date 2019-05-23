@@ -27,7 +27,7 @@ group :development do
   gem 'dotenv-rails'
 end
 
-group :development, :test do
+group :development, :tyarnest do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
