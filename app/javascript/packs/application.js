@@ -28,3 +28,8 @@ initSweetalert('#booking-confirmation', {
     swal("Your booking has been cancelled!");
   }
 });
+
+
+import {initAutocomplete} from '../plugins/init_autocomplete';
+
+initAutocomplete();
