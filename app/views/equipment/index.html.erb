@@ -15,22 +15,23 @@
   </div>
 </div>
 
+
 <div class="container">
 	<div class="sports-cards">
 
-  <%= link_to equipment_index_path(sport: "River") do %>
+  <%= link_to equipment_index_path(sport: "River", anchor: "sport-cards-index") do %>
 		<div class="card-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1439066290691-510066268af5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1566&q=80)">
 		  By the River...
 	  </div>
   <% end %>
 
-  <%= link_to equipment_index_path(sport: "Mountain") do %>
+  <%= link_to equipment_index_path(sport: "Mountain", anchor: "sport-cards-index") do %>
 		<div class="card-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)">
 		  By the Mountain...
     </div>
   <% end %>
 
-  <%= link_to equipment_index_path(sport: "Beach") do %>
+  <%= link_to equipment_index_path(sport: "Beach", anchor: "sport-cards-index") do %>
 		<div class="card-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1495954484750-af469f2f9be5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)">
 		  By the Beach...
     </div>
