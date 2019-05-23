@@ -7,6 +7,8 @@ class EquipmentController < ApplicationController
     # @equipment = Equipment.all
     if params[:query].present?
       @equipment = Equipment.global_search(params[:query])
+    elsif params[:sport]
+      @equipment =Equipment.where(sport: params[:sport])
     else
       # Show nothing
       # @equipment = []
