@@ -6,7 +6,10 @@
       <div class="card-equipment-info">
         <div>
           <h2><%= equipment.name %></h2>
-          <p><%= equipment.description %></p>
+            <div class="nav-div2">
+              <%= cl_image_tag equipment.user.avatar_photo, width: 20, height: 20, crop: :fill, radius: "max"%>
+              <p><%= equipment.user.username %></p>
+            </div>
         </div>
         <h2>$<%= equipment.price %></h2>
       </div>
