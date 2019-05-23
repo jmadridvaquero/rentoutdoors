@@ -20,13 +20,12 @@ class EquipmentController < ApplicationController
 
   def show
     authorize @equipment
-    unless (@equipment.latitude.nil? || @equipment.longitude.nil?) {
+    
       @marker = {
-          lat: equipment.latitude,
-          lng: equipment.longitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { equipment: equipment })
+          lat: @equipment.latitude,
+          lng: @equipment.longitude,
+          # infoWindow: render_to_string(partial: "infowindow", locals: { equipment: @equipment })
         }
-    }
      @booking = Booking.new
   end
 
