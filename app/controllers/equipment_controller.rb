@@ -6,13 +6,15 @@ class EquipmentController < ApplicationController
       @equipment = policy_scope(Equipment).order(created_at: :desc)
     # @equipment = Equipment.all
     if params[:query].present?
-          @equipment = Equipment.global_search(params[:query])
-        else
-          # Show nothing
-          # @equipment = []
-          # Show all
-          @equipment = Equipment.all
-        end
+      @equipment = Equipment.global_search(params[:query])
+    else
+      # Show nothing
+      # @equipment = []
+      # Show all
+      @equipment = Equipment.all
+    end
+  end
+
     if user_signed_in?
       @equipment = @equipment.reject do |equipment|
         equipment.user.username == current_user.username
