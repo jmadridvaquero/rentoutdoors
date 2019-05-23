@@ -1,6 +1,12 @@
 class Equipment < ApplicationRecord
   has_many :equipment_attachments, dependent: :destroy
   belongs_to :user
+  include PgSearch
+  pg_search_scope :global_search,
+    against: [ :name, :sport],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   accepts_nested_attributes_for :equipment_attachments
 
