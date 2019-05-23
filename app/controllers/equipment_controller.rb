@@ -13,7 +13,6 @@ class EquipmentController < ApplicationController
       # Show all
       @equipment = Equipment.all
     end
-  end
 
     if user_signed_in?
       @equipment = @equipment.reject do |equipment|
