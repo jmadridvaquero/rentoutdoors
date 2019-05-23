@@ -1,38 +1,41 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1515569045695-3b8a5db84e22?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2878&q=80);">
-      <h1 class="row justify-content-center">Welcome to RentOutdoors</h1>
-      <h2 class="row justify-content-center typed">
-       <span id="banner-typed-text"></span>
-      </h2>
+  <h1 class="row justify-content-center">Welcome to RentOutdoors</h1>
+  <h2 class="row justify-content-center typed">
+  <span id="banner-typed-text"></span>
+  </h2>
   <div class="row justify-content-center">
     <%= form_tag(equipment_index_path, method: :get) do %>
-        <%= text_field_tag :name, nil, :placeholder => "Search Equipment", class: "form-control" %>
-        <%# submit_tag 'Search', name: nil, class:"btn btn-primary" %>
+      <%= text_field_tag :name, nil, :placeholder => "Search Equipment", class: "form-control" %>
+      <%# submit_tag 'Search', name: nil, class:"btn btn-primary" %>
     <% end %>
   </div>
 </div>
-</div>
+
 <div class="container">
 	<div class="sports-cards">
-		<div class="card-sport">
-			<img src="https://images.unsplash.com/photo-1439066290691-510066268af5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1566&q=80" alt="river image">
-			<h5>By the River...</h5>
+
+  <%= link_to equipment_index_path(sport: "River") do %>
+		<div class="card-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1439066290691-510066268af5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1566&q=80)">
+		  By the River...
 	  </div>
-		<div class="card-sport">
-			<img src="https://images.unsplash.com/photo-1439066290691-510066268af5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1566&q=80" alt="river image">
-			<h5>By the Mountain...</h5>
+  <% end %>
+
+  <%= link_to equipment_index_path(sport: "Mountain") do %>
+		<div class="card-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)">
+		  By the Mountain...
     </div>
-		<div class="card-sport">
-			<img src="https://images.unsplash.com/photo-1439066290691-510066268af5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1566&q=80" alt="river image">
-			<h5>By the Beach...</h5>
+  <% end %>
+
+  <%= link_to equipment_index_path(sport: "Beach") do %>
+		<div class="card-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1495954484750-af469f2f9be5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)">
+		  By the Beach...
     </div>
+  <% end %>
+
 	</div>
 </div>
-
 
 <div class="container">
   <h2>Equipment</h2>
   <%= render partial: "shared/index-cards", object: @equipment%>
 </div>
-
-
-

@@ -73,8 +73,18 @@
    grid-gap: 16px;
 }
 .card-sport{
-  overflow: hidden;
-  background: white;
+  background-size: cover;
+  background-position: center;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: 0.5s;
   margin: 16px 0;
@@ -82,6 +92,7 @@
 .card-sport:hover{
   transform: scale(1.05);
 }
-.card-sport img{
-  height: 350px;
+.sports-cards a:hover{
+  text-decoration: none;
 }
+

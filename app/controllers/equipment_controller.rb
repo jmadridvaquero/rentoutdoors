@@ -7,6 +7,8 @@ class EquipmentController < ApplicationController
     # @equipment = Equipment.all
     if params[:name]
       @equipment = Equipment.where('name ILIKE ?', "%#{params[:name]}%")
+    elsif params[:sport]
+      @equipment =Equipment.where(sport: params[:sport])
     else
       @equipment = Equipment.all
     end
