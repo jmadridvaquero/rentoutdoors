@@ -5,9 +5,8 @@ class EquipmentController < ApplicationController
   def index
       @equipment = policy_scope(Equipment).order(created_at: :desc)
     # @equipment = Equipment.all
-    if params[:name] || params[:sport]
+    if params[:name]
       @equipment = Equipment.where('name ILIKE ?', "%#{params[:name]}%")
-      @equipment = @equipment.where('sport ILIKE ?', "#{params[:sport]}")
     else
       @equipment = Equipment.all
     end
