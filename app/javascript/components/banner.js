@@ -7,8 +7,8 @@ const typedElement = document.getElementById('banner-typed-text');
 const loadDynamicBannerText = () => {
   if (typedElement) {
     new Typed('#banner-typed-text', {
-      strings: ["Welcome to RentOutdoors", "Come to us"],
-      typeSpeed: 35,
+      strings: ["Find all your weekend adventure equipment!"],
+      typeSpeed: 100,
       loop: true,
     });
   }
