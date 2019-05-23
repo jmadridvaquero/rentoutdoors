@@ -23,7 +23,7 @@ Equipment.create!(address: "8520 rue Saint-Denis, Montréal, QC H2P 2H2", name: 
 sleep(1)
 Equipment.create!(address: "5723 Av du Parc, Montréal, QC H2V 4H2", name: "Mat", sport: "Yoga", price: 20, description: "A very nice yoga mat" ,remote_photo_url: "https://images.unsplash.com/photo-1527247693210-1154afbbb326?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80", user: User.second)
 sleep(1)
-Equipment.create!(address: "5723 Av du Parc, Montréal, QC H2V 4H2", name: "Arc", sport: "Archery", price: 20, description: "A very nice Arc" ,remote_photo_url: "https://images.unsplash.com/photo-1544530228-b1c874da4701?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2117&q=80", user: User.third)
+Equipment.create!(address: "5723 Av du Parc, Montréal, QC H2V 4H2", name: "Bow", sport: "Archery", price: 20, description: "A very nice Bow" ,remote_photo_url: "https://images.unsplash.com/photo-1544530228-b1c874da4701?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2117&q=80", user: User.third)
 sleep(1)
 Equipment.create!(address: "5333 Avenue Casgrain, Montréal, QC H2T 1X3", name: "Rod", sport: "Fishing", price: 20, description: "A very nice Fishing rod" ,remote_photo_url: "https://images.unsplash.com/photo-1449158672805-f0deda6782ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80", user: User.fourth)
 sleep(1)
