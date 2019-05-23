@@ -1,0 +1,12 @@
+<div class="cards">
+  <% @equipment.each do |equipment|%>
+    <%= link_to equipment_path(equipment) do %>
+    <div class="card-equipment">
+      <%= cl_image_tag equipment.photo %>
+      <div class="card-equipment-info">
+        <h2><%= equipment.sport %></h2>
+      </div>
+    </div>
+  <% end %>
+</div>
+

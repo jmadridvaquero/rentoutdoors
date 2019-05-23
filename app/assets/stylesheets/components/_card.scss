@@ -60,13 +60,28 @@
   padding: 16px;
   border: 1px solid #e4e4e4;
 }
-
-.nav-div2{
+.avatar_photo_card{
   display: flex;
   margin-top: 8px;
   p {
   margin-left: 8px;
   }
 }
- 
-
+.sports-cards {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 16px;
+}
+.card-sport{
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: 0.5s;
+  margin: 16px 0;
+}
+.card-sport:hover{
+  transform: scale(1.05);
+}
+.card-sport img{
+  height: 350px;
+}
