@@ -11,6 +11,11 @@ class EquipmentController < ApplicationController
     else
       @equipment = Equipment.all
     end
+    if user_signed_in?
+      @equipment = @equipment.reject do |equipment|
+        equipment.user.username == current_user.username
+      end
+    end
   end
 
   def new
@@ -21,7 +26,6 @@ class EquipmentController < ApplicationController
 
   def show
     authorize @equipment
-
       @marker = {
           lat: @equipment.latitude,
           lng: @equipment.longitude,
