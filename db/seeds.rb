@@ -15,10 +15,10 @@ end
 
 #Create 4 users
 puts "creating users..."
-User.create!(username: "Diego", email: "diego@email.com", password: "123456", zipcode: "7503 Rue St Denis Montreal QC H2R 2E7(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
-User.create!(username: "Javier", email: "javier@email.com", password: "123456", zipcode: "6817 43 Av Montreal QC H1T 2R9(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
-User.create!(username: "Simon", email: "simon@email.com", password: "123456", zipcode: "251 Av Percival Montreal Ouest QC H4X 1T8(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
-User.create!(username: "Robert", email: "robert@email.com", password: "123456", zipcode: "7766 George Street Lasalle QC H8P 1E1(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
+User.create!(username: "Diego", email: "diego@email.com", password: "123456", address: "7503 Rue St Denis Montreal QC H2R 2E7(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
+User.create!(username: "Javier", email: "javier@email.com", password: "123456", address: "6817 43 Av Montreal QC H1T 2R9(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
+User.create!(username: "Simon", email: "simon@email.com", password: "123456", address: "251 Av Percival Montreal Ouest QC H4X 1T8(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
+User.create!(username: "Robert", email: "robert@email.com", password: "123456", address: "7766 George Street Lasalle QC H8P 1E1(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
 #Create 5 equipment
 puts "creating pieces of equipment..."
 
