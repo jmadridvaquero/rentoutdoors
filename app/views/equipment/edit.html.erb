@@ -1,19 +1,19 @@
-<div class="form-card">
-  <h1>Edit <%= @equipment.name %></h1>
-  <%= simple_form_for @equipment do |f| %>
-    <%= f.input :name %>
-    <%= f.select :sport, Equipment::SPORTS %>
-    <%= f.input :price %>
-    <%= f.input :address %>
-    <%= f.fields_for :equipment_attachments do |p| %>
-      <div class="field">
-        <%= p.label :photo %><br>
-        <%= p.file_field :photo, :multiple => true, name: "equipment_attachments[photo][]" %>
-      </div>
+<div class="full-height">
+  <div class="form-card">
+    <h1>Edit <%= @equipment.name %></h1>
+    <%= simple_form_for @equipment do |f| %>
+      <%= f.input :name, label: false, placeholder: 'Equipment Name' %>
+      <%= f.select :sport, Equipment::SPORTS %>
+      <%= f.input :price, label: false, placeholder: 'Price' %>
+      <%= f.input :address, label: false, placeholder: 'address' %>
+      <%= f.fields_for :equipment_attachments do |p| %>
+        <div class="field">
+          <%= p.label :photo %><br>
+          <%= p.file_field :photo, :multiple => true, name: "equipment_attachments[photo][]" %>
+        </div>
+      <% end %>
+      <%= f.input :description, label: false, placeholder: 'Description' %>
+      <%= f.submit "Change", class: "btn btn-primary"%>
     <% end %>
-    <%= f.input :description %>
-    <%= f.submit "Change", class: "btn btn-primary"%>
-  <% end %>
-  <br>
-  <%= link_to "Back", equipment_path(@equipment), class: "btn btn-primary" %>
+  </div>
 </div>
