@@ -1,6 +1,7 @@
 
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= cl_image_path(@equipment.equipment_attachments.first&.photo || "") %>)">
 </div>
+
 <div class="container show-container">
   <div class="equipment-info">
     <h1><%= @equipment.name %></h1>
@@ -16,6 +17,7 @@
     <%= link_to "Destroy", equipment_path, method: "delete", data: { confirm: "Do you want to delete?"}, class: "btn btn-primary" %>
     <% end %>
   </div>
+
   <div class="booking-card">
     <div class="container equipment-price">
       <h5>$<%= @equipment.price %></h5>
