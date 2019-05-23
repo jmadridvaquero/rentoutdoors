@@ -6,6 +6,9 @@
     <h1><%= @equipment.name %></h1>
     <p><%= @equipment.description %></p>
     <p><%= @equipment.sport %></p>
+    <p>from <%= @equipment.user.username %>
+      <%= cl_image_tag @equipment.user.avatar_photo, width: 40, height: 40, crop: :fill, radius: "max", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </p>
     <% if policy(@equipment).edit? %>
     <%= link_to "Edit", edit_equipment_path, class: "btn btn-primary" %>
     <% end %>
