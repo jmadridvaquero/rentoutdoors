@@ -62,6 +62,6 @@ class EquipmentController < ApplicationController
   end
 
   def equipment_allowed_params
-    params.require(:equipment).permit(:name, :sport, :description, :price, :photo)
+    params.require(:equipment).permit(:name, :sport, :description, :address, :price, :photo)
   end
 end
