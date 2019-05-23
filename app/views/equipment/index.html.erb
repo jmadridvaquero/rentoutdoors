@@ -10,15 +10,7 @@
     <% end %>
   </div> 
 </div>
-	<div class="card-form">
-	    <%= form_tag(equipment_index_path, method: :get) do %>
-	      <h5>Equipment</h5>
-	      <%= text_field_tag :name %>
-	      <h5>Sport-Category</h5>
-	      <%= select_tag "sport", options_for_select(Equipment::SPORTS, "Category") %>
-	      <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
-	    <% end %>
-	</div>
+	
 </div>
 <div class="container">
 	<div class="sports-cards">
