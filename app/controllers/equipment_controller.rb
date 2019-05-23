@@ -5,11 +5,14 @@ class EquipmentController < ApplicationController
   def index
       @equipment = policy_scope(Equipment).order(created_at: :desc)
     # @equipment = Equipment.all
-    if params[:name]
-      @equipment = Equipment.where('name ILIKE ?', "%#{params[:name]}%")
-    else
-      @equipment = Equipment.all
-    end
+    if params[:query].present?
+          @equipment = Equipment.global_search(params[:query])
+        else
+          # Show nothing
+          # @equipment = []
+          # Show all
+          @equipment = Equipment.all
+        end
     if user_signed_in?
       @equipment = @equipment.reject do |equipment|
         equipment.user.username == current_user.username
