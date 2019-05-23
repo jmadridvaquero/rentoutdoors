@@ -39,23 +39,6 @@
   align-items: flex-end;
   position: relative;
 }
-.card-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 25%;
-  left: 48px;
-  padding: 24px;
-  background-color: rgba(235,235,235,0.9);
-  height: 230px;
-  width: 260px;
-  border-radius: 8px;
-}
-.card-form .btn{
-  margin-top: 16px;
-}
 .booking-card{
   padding: 16px;
   border: 1px solid #e4e4e4;
@@ -95,4 +78,24 @@
 .sports-cards a:hover{
   text-decoration: none;
 }
-
+.form-card{
+  width: 600px;
+  margin:  16px auto;
+  background-color: white;
+  padding: 24px;
+  border-radius: 5px;
+}
+.form-card h1{
+  text-align: center;
+}
+.form-card .btn{
+  border-radius: 20px;
+}
+.form-card .form-group{
+  margin: 10px 0;
+}
+.form-card select{
+  border: 1px solid #ced4da;
+  background-color: white;
+  color: #6d767e;
+}
