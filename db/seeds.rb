@@ -86,7 +86,7 @@ EquipmentAttachment.create!(equipment: equipment15, remote_photo_url: "https://i
 EquipmentAttachment.create!(equipment: equipment16, remote_photo_url: "https://images.unsplash.com/photo-1534109287195-26cc74f4940f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" )
 
 puts 'Creating reviews...'
-Review.create!(equipment: equipment1, description: "my descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription", title: "my title")
+Review.create!(equipment: equipment1, description: "my descriptionmy descriptionmy descriptionmy description", title: "my title")
 puts 'Finished!'
 
 puts "seeds done! time to launch the server"
