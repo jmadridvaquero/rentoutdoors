@@ -7,6 +7,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def show
+    authorize @review
+  end
+
   def new
     @booking = Booking.new
     authorize @booking
