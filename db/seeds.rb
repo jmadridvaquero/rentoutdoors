@@ -108,6 +108,4 @@ equipment16.save!
 puts "Creating attachments.."
 
 
-
-
 puts "seeds done! time to launch the server"

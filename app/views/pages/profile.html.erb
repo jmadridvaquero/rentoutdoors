@@ -21,9 +21,7 @@
         <h2 class="tab-headers">Incoming bookings</h2>
            <%= render partial: "shared/booking_status_card", object: @booking%>
         <h2 class="tab-headers">Outcoming bookings</h2>
-        <% @bookings_by_user.each do |booking| %>
           <%= render partial: "shared/outcoming_booking_status_card", object: @booking%>
-        <% end %>
         </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <h2 class="tab-headers">Your Items</h2>
