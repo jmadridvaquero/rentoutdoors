@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="full-height-profile">
+    <div class="form-card">
+      <h2>Profile</h2>
+      <%# @equipmen.each do |equipment| %>
+      <%= cl_image_tag @user.avatar_photo, width: 50, height: 50, crop: :fill, radius: "max"%>
+      <!-- <p><%# equipment.user.username %></p> -->
+      <%# end %>
+
+      <%= simple_form_for @user do |f| %>
+        <div class="form-inputs">
+          <%= f.input :username, placeholder: "Change your username" %>
+          <%= f.input :email, placeholder: "Change your email" %>
+          <%= f.input :avatar_photo, placeholder: "Change your avatar" %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Save", class: "btn btn-outline-success btn-block" %>
+        </div>
+      <% end %>
+      <br>
+      <%# render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

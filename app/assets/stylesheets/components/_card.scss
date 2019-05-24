@@ -91,6 +91,9 @@
 .form-card h1{
   text-align: center;
 }
+.form-card h2 {
+  text-align: center;
+}
 .form-card .btn{
   border-radius: 20px;
 }
@@ -118,4 +121,12 @@
 
 
 .reviews-cars{
+}
+
+.full-height-profile {
+  height: calc(100vh - 66px);
+}
+.tab-headers {
+  margin-top: 10px;
+  font-family: 'Montserrat', 'sans-serif';
 }
