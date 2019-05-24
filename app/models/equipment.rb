@@ -1,4 +1,6 @@
 class Equipment < ApplicationRecord
+  has_many :bookings
+  has_many :reviews, dependent: :destroy
   has_many :equipment_attachments, dependent: :destroy
   belongs_to :user
   include PgSearch

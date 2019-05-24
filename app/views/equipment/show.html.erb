@@ -31,10 +31,10 @@
       <%= cl_image_tag @equipment.user.avatar_photo, width: 40, height: 40, crop: :fill, radius: "max", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     </p>
     <% if policy(@equipment).edit? %>
-    <%= link_to "Edit", edit_equipment_path, class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_equipment_path, class: "btn btn-primary" %>
     <% end %>
     <% if policy(@equipment).destroy? %>
-    <%= link_to "Destroy", equipment_path, method: "delete", data: { confirm: "Do you want to delete?"}, class: "btn btn-primary" %>
+      <%= link_to "Destroy", equipment_path, method: "delete", data: { confirm: "Do you want to delete?"}, class: "btn btn-primary" %>
     <% end %>
   </div>
 
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="map-card">
     <div
       id="map"
       style="width: 100%;
@@ -60,5 +60,22 @@
       data-marker="<%= @marker.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
+  </div>
+</div>
+
+<div class="container review-card">
+    <p>
+      <%= pluralize @equipment.reviews.size, "review" %>
+    </p>
+  <div id="reviews">
+    <% if @equipment.reviews.blank? %>
+      Be the first to leave a review for <%= @equipment.name %>
+    <% else %>
+      <% @equipment.reviews.each do |review| %>
+        <%= render 'reviews/show', review: review %>
+      <% end %>
+    <% end %>
+
+    <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
   </div>
 </div>

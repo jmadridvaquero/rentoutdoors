@@ -31,13 +31,14 @@ class EquipmentController < ApplicationController
 
   def show
     authorize @equipment
-      @marker = {
-          lat: @equipment.latitude,
-          lng: @equipment.longitude,
-          # infoWindow: render_to_string(partial: "infowindow", locals: { equipment: @equipment })
-           image_url: helpers.asset_url('rond.png')
-        }
-     @booking = Booking.new
+    @marker = {
+      lat: @equipment.latitude,
+      lng: @equipment.longitude,
+      # infoWindow: render_to_string(partial: "infowindow", locals: { equipment: @equipment })
+      image_url: helpers.asset_url('rond.png')
+      }
+    @booking = Booking.new
+    @review = Review.new
   end
 
   def create

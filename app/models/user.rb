@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :bookings
   mount_uploader :avatar_photo, PhotoUploader
   has_many :equipment
   # Include default devise modules. Others available are:
