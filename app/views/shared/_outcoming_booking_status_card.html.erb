@@ -1,0 +1,15 @@
+<div class="container">
+	<% @bookings_by_user.each do |booking| %>
+		<div class="card-product">
+		  <%= cl_image_tag booking.equipment.equipment_attachments.first&.photo %>
+		  <div class="card-product-infos">
+		  	<h2><%= booking.equipment.name %></h2>
+
+	    	<div class="avatar_photo_card" >
+	       	<p><%= booking.status %> to <%= booking.user.username %></p>
+	     	</div>
+		  </div>
+		</div>
+	<% end %>
+</div>
+

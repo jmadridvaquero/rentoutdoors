@@ -12,6 +12,23 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+
+    if params[:commit] == "Refuse"
+      @booking.status = "refused"
+    else
+      @booking.status = "accepted"
+    end
+    @booking.save!
+      redirect_to profile_path, notice: "Booking was successfully updated!"
+  end
+
+  def edit
+   authorize @booking
+  end
+
   def create
     @booking = Booking.new(booking_allowed_params)
     authorize @booking
@@ -40,6 +57,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_allowed_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

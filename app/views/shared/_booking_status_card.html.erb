@@ -1,0 +1,29 @@
+<div class="container">
+	<% @bookings.each do |booking| %>
+		<div class="card-product">
+		  <%= cl_image_tag booking.equipment.equipment_attachments.first&.photo %>
+		  <div class="card-product-infos">
+		  	<h2><%= booking.equipment.name %></h2>
+	       	<p>Requested by <%= booking.user.username %></p>
+	       	<% if booking.status == "accepted" %>
+	       		<p>status: <span class="accepted-green"><%= booking.status %></span></p>
+	       	<% elsif booking.status == "refused"%>
+	       		<p>status: <span class="refused-red"><%= booking.status %></span></p>
+	       	<% else %>
+	       		<p>status: <%= booking.status %></p>
+	       	<% end %>
+	       
+		  </div>
+		  <% if booking.status == "requested" %>
+			  <div class="button-div">
+			  	<%= simple_form_for [booking.equipment, booking] do |f| %>
+			  	<%= f.submit "Accept", class:"btn btn-outline-success" %>
+			  	<%= f.submit "Refuse", class:"btn btn-outline-danger" %>
+			    <% end %>	
+			  </div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+
