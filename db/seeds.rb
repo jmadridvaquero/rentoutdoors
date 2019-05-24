@@ -21,6 +21,7 @@ User.create!(username: "Simon", email: "simon@email.com", password: "123456", ad
 User.create!(username: "Robert", email: "robert@email.com", password: "123456", address: "7766 George Street Lasalle QC H8P 1E1(Montreal ,Quebec)", remote_avatar_photo_url: "https://www.w3schools.com/howto/img_avatar.png")
 #Create 5 equipment
 puts "creating pieces of equipment..."
+puts "15 seconds left .."
 
 equipment1 = Equipment.create!(address: "8520 rue Saint-Denis, Montréal, QC H2P 2H2", name: "Kayak", sport: "Beach", price: 20, description: "Designed to make the outdoors more accessible, the Beach LT is one of the world's easiest collapsible boats to put together. Perfect for both beginners and experts, it's ideal for a casual paddle on calm water, spontaneous day trips, and sharing with friends and family. Built with simplicity in mind, it still exceeds our usual high standards of strength and durability. And of course, it's as easy on the eyes as it is on the water. ", user: User.first)
 sleep(1)
@@ -32,6 +33,7 @@ equipment4 = Equipment.create!(address: "5333 Avenue Casgrain, Montréal, QC H2T
 sleep(1)
 equipment5 = Equipment.create!(address: "6584 Boul St-Laurent, Montréal, QC H2S 3C6", name: "Boat", sport: "River", price: 20, description: "I bind my boat to the shore, to the anchor point that will keep it safely in the harbour until conditions are fair enough to sail once more. I wrap the rope as my grandfather showed me how, though that was so very long ago. It's a memory made from watching him in awe, feeling the movement of his weathered hands as if they were my own, then trying it for myself. My hands move as if they were his, the decades between nothing at all, feeling the texture and the movement it takes to make the so knot fast and true." , user: User.first)
 
+puts "10 seconds left.."
 
 equipment6 = Equipment.create!(address: "1460 rue Saint-Denis, Montréal", name: "Surfboard", sport: "Beach", price: 20, description: "The above is a 7’4 ‘mini-mal’ by Liquid Lines.  I usually suggest that learning surfers get a surfboard between 7’2 and 8’0 foot, depending on their weight. If you’re a smaller female, a 7 ‘0 or a 7’2 should do the trick. If you’re a big guy starting out maybe  a 7’6 or a 8’0 foot will do. I started with a 7’6 (pictured above). This doesn’t have much rocker, although rocker is really unimportant to you in the beginning of your surfing journey.  You can see how thick it is through the center. This is a big, wide, stable board. It’s not really good for anything but catching waves, getting up to your feet and staying on your feet as long as possible.", user: User.first)
 sleep(1)
@@ -49,6 +51,7 @@ equipment10 = Equipment.create!(address: "1440 boulevard Saint-Vital, Montréal"
 
 " , user: User.first)
 
+puts "5 seconds left.."
 equipment11 = Equipment.create!(address: "1360 rue Guizot, Montreal", name: "Beach cactus float", sport: "Beach", price: 10, description: "Use it on the deck or in the water, the Suntan Oasis is the ultimate way to relax as you tan. Measuring 71 in. L, this comfortable lounger is the perfect size for almost any adult to drift their cares way. Features a clear reflective top for even tanning, separate inflatable pillow, a self-draining bottom and a grab rope. On extra hot days simply fill the Suntan Oasis with water to cool off." , user: User.first)
 
 equipment12 = Equipment.create!(address: "8320 boulevard Saint-Martin, Laval des Rapides", name: "Kayak", sport: "River", price: 20, description: "The kayak is far heavier than I had imagined. On water of course it glides, as weightless as the earth in space. It takes the two of us to haul it down to the water's edge and let the carrot coloured boat bob at the shore - the front end planted on the shingle and the rudder end joyously afloat. Then we head back to the shack to pick up the second. A double would be less work right now, just one to carry, but the fun of paddling solo is worth the effort. One kayak each means hours of fun, both of us in one boat means hours of frustration. The rubber skirts look ridiculous until we sit, and then they are just the bomb, stretching around the rim to keep us dryer as we paddle out. I get the carrot, Ben gets a blue brighter than the sky and now the only task is to paddle to the bay, lunch safely stowed in the cubby holes." , user: User.first)
@@ -63,6 +66,7 @@ sleep(1)
 equipment16 = Equipment.create!(address: "1360 rue de Liege, Montreal", name: "Hot float", sport: "River", price: 20, description: "Use it on the deck or in the water, the Suntan Oasis is the ultimate way to relax as you tan. Measuring 71 in. L, this comfortable lounger is the perfect size for almost any adult to drift their cares way. Features a clear reflective top for even tanning, separate inflatable pillow, a self-draining bottom and a grab rope. On extra hot days simply fill the Suntan Oasis with water to cool off." , user: User.first)
 
 # Create equipment attachments
+puts "Creating attachments.."
 
 EquipmentAttachment.create!(equipment: equipment1, remote_photo_url: "https://images.unsplash.com/photo-1544407558-71e53c6a1136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" )
 EquipmentAttachment.create!(equipment: equipment2, remote_photo_url: "https://images.unsplash.com/photo-1445308394109-4ec2920981b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1653&q=80" )
@@ -80,5 +84,9 @@ EquipmentAttachment.create!(equipment: equipment13, remote_photo_url: "https://i
 EquipmentAttachment.create!(equipment: equipment14, remote_photo_url: "https://images.unsplash.com/photo-1522041350204-22285237eeca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" )
 EquipmentAttachment.create!(equipment: equipment15, remote_photo_url: "https://images.unsplash.com/photo-1473682150760-51d4f94b09d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" )
 EquipmentAttachment.create!(equipment: equipment16, remote_photo_url: "https://images.unsplash.com/photo-1534109287195-26cc74f4940f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" )
+
+puts 'Creating reviews...'
+Review.create!(equipment: equipment1, description: "my descriptionmy descriptionmy descriptionmy description", title: "my title")
+puts 'Finished!'
 
 puts "seeds done! time to launch the server"
