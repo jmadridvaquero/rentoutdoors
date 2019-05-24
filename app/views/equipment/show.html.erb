@@ -44,8 +44,8 @@
 
   <div class="booking-card">
     <div class="container equipment-price">
-      <h5>$<%= @equipment.price %></h5>
-      <p>per day</p>
+      <h5>$<%= @equipment.price %></h5><p>per day</p></span>
+      
     </div>
     <div class="booking_form">
       <%= simple_form_for [@equipment, @booking] do |f| %>
