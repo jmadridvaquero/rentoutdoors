@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_equipment, only: [:destroy, :create]
+  before_action :set_equipment, only: [:create]
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
@@ -19,17 +19,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params_review)
-    authorize @review
     @user = current_user
-
     @review.user = @user
     @review.equipment = @equipment
-    if @review.save!
-      redirect_to equipment_path(@equipment)
-    else
-      render :new
 
-    @review.equipment = @equipment
+    authorize @review
+
     if @review.save
       respond_to do |format|
         format.html { redirect_to equipment_path(@equipment) }
@@ -44,8 +39,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
+
     @review.destroy
-    redirect_to equipment_path(@equipment)
+    redirect_to equipment_path(@review.equipment)
     authorize @review
   end
 
@@ -56,11 +53,6 @@ class ReviewsController < ApplicationController
   end
 
   def params_review
-    params.require(:review).permit(:booking_id, :title, :content)
-  end
-
-
-   def set_booking
-    @booking = Equipment.find(params[:booking_id])
+    params.require(:review).permit(:booking_id, :title, :description)
   end
 end

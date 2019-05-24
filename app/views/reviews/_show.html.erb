@@ -1,6 +1,7 @@
 
 <div class="card-review container">
-  <p><%= review.title %></p>
+  <p><%= review.title %> from <%= review.user.username %></p>
   <p><%= review.description %></p>
+  <%= link_to "Destroy", review_path(review), method: "delete", data: { confirm: "Do you want to delete?"}, class: "btn btn-primary" %>
 </div>
 

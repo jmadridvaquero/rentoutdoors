@@ -6,31 +6,29 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    user_made_a_booking?
   end
 
-  def new?
-    return true
-  end
 
   def update?
-    user_is_booker?
+    user_is_owner?
   end
+
   def show?
     return true
   end
 
   def destroy?
-    user_is_booker?
-  end
-
-  def edit?
-    user_is_booker?
+    user_is_owner?
   end
 
   private
 
-  def user_is_booker?  
+  def user_made_a_booking?
+    Booking.exists?(equipment: record.equipment, user: user)
+  end
+
+  def user_is_owner?
     record.user == user
   end
 end
