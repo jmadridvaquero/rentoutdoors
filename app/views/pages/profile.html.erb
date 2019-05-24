@@ -6,10 +6,7 @@
         <a class="subNavbarLink active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Activity</a>
       </li>
       <li>
-        <a class="subNavbarLink" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Pending</a>
-      </li>
-      <li>
-        <a class="subNavbarLink" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">History</a>
+        <a class="subNavbarLink" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Items</a>
       </li>
       <li>
       <a class="subNavbarLink" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Settings</a>
@@ -17,11 +14,20 @@
     </ul>
   </div>
 </div>
-<div class="full-height">
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Hello These are your recent bookings</div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Here are your booked adventures</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Here is your history of bookings</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Here is your history of bookings</div>
+<div class="container">
+  <div class="full-height-profile">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <h2 class="tab-headers">Recent Activity</h2>
+        <h2 class="tab-headers">Past Activity</h2>
+        </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <h2 class="tab-headers">Your Items</h2>
+        <%= render partial: "shared/profile-page-cards", object: @equipment%>
+      </div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <%= render partial: "shared/profile-settings", object: @user %>
+      </div>
+    </div>
   </div>
 </div>
