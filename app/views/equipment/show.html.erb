@@ -27,9 +27,13 @@
     <h1><%= @equipment.name %></h1>
     <p><%= @equipment.description %></p>
     <p><%= @equipment.sport %></p>
-    <p>from <%= @equipment.user.username %>
-      <%= cl_image_tag @equipment.user.avatar_photo, width: 40, height: 40, crop: :fill, radius: "max", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    </p>
+
+    <% unless policy(@equipment).edit? %>
+      <p>from <%= @equipment.user.username %>
+        <%= cl_image_tag @equipment.user.avatar_photo, width: 40, height: 40, crop: :fill, radius: "max", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= link_to "(Check his profile)", user_path(@equipment.user), class: "btn"%>
+      </p>
+    <% end %>
     <% if policy(@equipment).edit? %>
       <%= link_to "Edit", edit_equipment_path, class: "btn btn-primary" %>
     <% end %>
@@ -52,18 +56,28 @@
     </div>
   </div>
 
+
   <div class="container review-card">
-    <p><%= pluralize @equipment.reviews.size, "review" %></p>
     <div id="reviews">
-      <% if @equipment.reviews.blank? %>
-        Be the first to leave a review for <%= @equipment.name %>
+      <% unless policy(@equipment).edit? %>
+        <% if @equipment.reviews.blank? %>
+          Be the first to leave a review for <%= @equipment.name %>
+        <% else %>
+          <% @equipment.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+          <% end %>
+        <% end %>
+        <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
       <% else %>
-        <% @equipment.reviews.each do |review| %>
-          <%= render 'reviews/show', review: review %>
+        <% if @equipment.reviews.blank? %>
+          No rewiew on your <%= @equipment.name %> yet
+        <% else %>
+          Here are all the reviews for your <%= @equipment.name %>
+          <% @equipment.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+          <% end %>
         <% end %>
       <% end %>
-
-      <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
     </div>
   </div>
 
