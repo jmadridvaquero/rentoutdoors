@@ -1,9 +1,9 @@
 <div class="container">
   <div class="full-height-profile">
-    <div class="form-card">
+    <div class="form-card" id="profile-avatar">
       <h2>Profile</h2>
       <%# @equipmen.each do |equipment| %>
-      <%= cl_image_tag @user.avatar_photo, width: 50, height: 50, crop: :fill, radius: "max"%>
+      <%= cl_image_tag @user.avatar_photo, width: 100, height: 100, crop: :fill, radius: "max"%>
       <!-- <p><%# equipment.user.username %></p> -->
       <%# end %>
 
