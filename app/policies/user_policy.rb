@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-    def show?
+  def show?
     return true
   end
 end
