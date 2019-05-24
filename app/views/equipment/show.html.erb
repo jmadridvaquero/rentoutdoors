@@ -52,30 +52,28 @@
     </div>
   </div>
 
+  <div class="container review-card">
+    <p><%= pluralize @equipment.reviews.size, "review" %></p>
+    <div id="reviews">
+      <% if @equipment.reviews.blank? %>
+        Be the first to leave a review for <%= @equipment.name %>
+      <% else %>
+        <% @equipment.reviews.each do |review| %>
+          <%= render 'reviews/show', review: review %>
+        <% end %>
+      <% end %>
+
+      <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+    </div>
+  </div>
+
   <div class="map-card">
     <div
       id="map"
       style="width: 100%;
-      height: 600px;"
+      height: 400px;"
       data-marker="<%= @marker.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
-  </div>
-</div>
-
-<div class="container review-card">
-    <p>
-      <%= pluralize @equipment.reviews.size, "review" %>
-    </p>
-  <div id="reviews">
-    <% if @equipment.reviews.blank? %>
-      Be the first to leave a review for <%= @equipment.name %>
-    <% else %>
-      <% @equipment.reviews.each do |review| %>
-        <%= render 'reviews/show', review: review %>
-      <% end %>
-    <% end %>
-
-    <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
   </div>
 </div>
