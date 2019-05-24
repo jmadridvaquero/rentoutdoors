@@ -44,3 +44,9 @@
   <h2>Equipment</h2>
   <%= render partial: "shared/index-cards", object: @equipment%>
 </div>
+
+<% if params[:query].present? %>
+  <script>
+    window.scrollTo(0, window.innerHeight + 400);
+  </script>
+<% end %>
