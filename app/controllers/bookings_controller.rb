@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-
     authorize @booking
   end
 
@@ -28,7 +27,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to equipment_booking_path(equipment)
+    redirect_to equipment_booking_path(@equipment)
     authorize @booking
   end
 
