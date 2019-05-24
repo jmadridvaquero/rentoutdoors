@@ -110,13 +110,4 @@ puts "Creating attachments.."
 
 
 
-
-
-
-
-
-puts 'Creating reviews...'
-Review.create!(equipment: equipment1, description: "my descriptionmy descriptionmy descriptionmy description", title: "my title")
-puts 'Finished!'
-
 puts "seeds done! time to launch the server"
