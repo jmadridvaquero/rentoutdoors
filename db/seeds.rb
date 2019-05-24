@@ -106,16 +106,6 @@ equipment16.equipment_attachments.new(remote_photo_url: "https://images.unsplash
 equipment16.save!
 # Create equipment attachments
 puts "Creating attachments.."
-
-
-
-
-
-
-
-
-
-puts 'Creating reviews...'
 puts 'Finished!'
 
 puts "seeds done! time to launch the server"
