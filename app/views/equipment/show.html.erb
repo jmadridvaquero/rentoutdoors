@@ -61,7 +61,9 @@
     <div id="reviews">
       <% unless @equipment.user == current_user %>
         <% if @equipment.reviews.blank? %>
-          Be the first to leave a review for <%= @equipment.name %>
+          <% if policy(@review).create? %>
+            Be the first to leave a review for <%= @equipment.name %>
+          <% end %>
         <% else %>
           <% @equipment.reviews.each do |review| %>
             <%= render 'reviews/show', review: review %>
