@@ -6,11 +6,16 @@
       <%= f.select :sport, Equipment::SPORTS %>
       <%= f.input :price, label: false, placeholder: 'Price' %>
       <%= f.input :address, label: false, placeholder: 'address' %>
-      <%= f.fields_for :equipment_attachments do |p| %>
-        <div class="field">
-          <%= p.label :photo %><br>
-          <%= p.file_field :photo, :multiple => true, name: "equipment_attachments[photo][]" %>
-        </div>
+      <% if f.object.equipment_attachments.count.zero? %>
+        <%= f.label :photo %><br>
+        <%= f.file_field :photo, :multiple => true, name: "equipment_attachments[photo][]" %>
+      <% else %>
+        <%= f.fields_for :equipment_attachments do |p| %>
+          <div class="field">
+            <%= p.label :photo %><br>
+            <%= p.file_field :photo, :multiple => true, name: "equipment_attachments[photo][]" %>
+          </div>
+        <% end %>
       <% end %>
       <%= f.input :description, label: false, placeholder: 'Description' %>
       <%= f.submit "Create", class: "btn btn-outline-success btn-block"%>

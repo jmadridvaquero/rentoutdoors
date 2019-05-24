@@ -46,10 +46,13 @@ class EquipmentController < ApplicationController
     authorize @equipment
     @equipment.user = current_user
 
-    if @equipment.save
+    if !params[:equipment_attachments].nil?
       params[:equipment_attachments]['photo'].each do |a|
-         @equipment_attachment = @equipment.equipment_attachments.create!(:photo => a, :equipment_id => @equipment.id)
+         @equipment.equipment_attachments.new(:photo => a)
       end
+    end
+
+    if @equipment.save
       redirect_to equipment_path(@equipment), notice: "Listing was successfully created!"
     else
       render :new
@@ -63,8 +66,10 @@ class EquipmentController < ApplicationController
 
   def update
     if @equipment.update(equipment_allowed_params)
-      params[:equipment_attachments]['photo'].each do |a|
-         @equipment_attachment = @equipment.equipment_attachments.create!(:photo => a, :equipment_id => @equipment.id)
+      if !params[:equipment_attachments].nil?
+        params[:equipment_attachments]['photo'].each do |a|
+          @equipment_attachment = @equipment.equipment_attachments.create!(:photo => a, :equipment_id => @equipment.id)
+        end
       end
       redirect_to equipment_path(@equipment), notice: "Listing was successfully updated!"
     else
