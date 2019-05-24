@@ -10,7 +10,7 @@ class Equipment < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  
+
 
   accepts_nested_attributes_for :equipment_attachments
 
@@ -18,10 +18,17 @@ class Equipment < ApplicationRecord
   validates :sport, presence: true
   validates :price, presence: true
   validates :address, presence: true
+  validate :validate_photo
   # validates :address, presence: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
   SPORTS = ["Beach", "Mountain", "River"]
+
+  private
+
+  def validate_photo
+    errors.add(:equipment_attachments, "Need a photo") if equipment_attachments.size == 0
+  end
 end
