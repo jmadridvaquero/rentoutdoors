@@ -13,23 +13,24 @@ class ReviewPolicy < ApplicationPolicy
     return true
   end
 
+  def update?
+    user_is_booker?
+  end
   def show?
     return true
   end
 
-  def update?
-    user_is_owner?
-    # - record: the restaurant passed to the `authorize` method in controller
-    # - user:   the `current_user` signed in with Devise.
+  def destroy?
+    user_is_booker?
   end
 
-  def destroy?
-    user_is_owner?
+  def edit?
+    user_is_booker?
   end
 
   private
 
-  def user_is_owner?
+  def user_is_booker?  
     record.user == user
   end
 end

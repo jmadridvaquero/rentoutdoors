@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     authorize @review
   end
 
+
   def new
     @review = Review.new
     authorize @review
@@ -20,6 +21,14 @@ class ReviewsController < ApplicationController
     @review = Review.new(params_review)
     authorize @review
     @user = current_user
+
+    @review.user = @user
+    @review.equipment = @equipment
+    if @review.save!
+      redirect_to equipment_path(@equipment)
+    else
+      render :new
+
     @review.equipment = @equipment
     if @review.save
       respond_to do |format|
@@ -48,5 +57,10 @@ class ReviewsController < ApplicationController
 
   def params_review
     params.require(:review).permit(:booking_id, :title, :content)
+  end
+
+
+   def set_booking
+    @booking = Equipment.find(params[:booking_id])
   end
 end
