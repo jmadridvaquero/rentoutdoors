@@ -1,5 +1,7 @@
-<%= simple_form_for([ @equipment, @review ], remote: true) do |form| %>
-  <%= form.input :title, as: :string %>
-  <%= form.input :description, as: :text %>
-  <%= form.button :submit %>
-<% end %>
+
+
+  <%= simple_form_for([ equipment, review ], remote: true) do |form| %>
+    <%= form.input :title, as: :string %>
+    <%= form.input :description, as: :text %>
+    <%= form.button :submit %>
+  <% end %>

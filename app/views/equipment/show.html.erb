@@ -59,7 +59,7 @@
 
   <div class="container review-card">
     <div id="reviews">
-      <% unless policy(@equipment).edit? %>
+      <% unless @equipment.user == current_user %>
         <% if @equipment.reviews.blank? %>
           Be the first to leave a review for <%= @equipment.name %>
         <% else %>
@@ -67,7 +67,7 @@
             <%= render 'reviews/show', review: review %>
           <% end %>
         <% end %>
-        <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+
       <% else %>
         <% if @equipment.reviews.blank? %>
           No rewiew on your <%= @equipment.name %> yet
@@ -79,6 +79,9 @@
         <% end %>
       <% end %>
     </div>
+    <% if policy(@review).create? %>
+      <%= render 'reviews/form', equipment: @equipment, review: @review %>
+    <% end %>
   </div>
 
   <div class="map-card">

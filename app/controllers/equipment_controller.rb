@@ -38,7 +38,7 @@ class EquipmentController < ApplicationController
       image_url: helpers.asset_url('rond.png')
       }
     @booking = Booking.new
-    @review = Review.new
+    @review = Review.new(equipment: @equipment)
   end
 
   def create
