@@ -44,13 +44,13 @@
   </div>
 </div>
 
-<div class="review-card">
+<div class="container review-card">
     <p>
       <%= pluralize @equipment.reviews.size, "review" %>
     </p>
   <div id="reviews">
     <% if @equipment.reviews.blank? %>
-      Be the first to leave a review for <%= @equipment.title %>
+      Be the first to leave a review for <%= @equipment.name %>
     <% else %>
       <% @equipment.reviews.each do |review| %>
         <%= render 'reviews/show', review: review %>

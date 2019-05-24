@@ -1,4 +1,5 @@
-<%= simple_form_for([ restaurant, review ], remote: true) do |form| %>
+<%= simple_form_for([ @equipment, @review ], remote: true) do |form| %>
+  <%= form.input :title, as: :string %>
   <%= form.input :description, as: :text %>
   <%= form.button :submit %>
 <% end %>
