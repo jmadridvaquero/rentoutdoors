@@ -19,6 +19,8 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'pundit'
 gem 'geocoder'
+gem 'pg_search'
+
 
 
 
@@ -27,7 +29,7 @@ group :development do
   gem 'dotenv-rails'
 end
 
-group :development, :test do
+group :development, :tyarnest do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'

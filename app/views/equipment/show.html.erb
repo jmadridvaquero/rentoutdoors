@@ -29,7 +29,7 @@
       <%= f.input :end_date, { html5: true} %>
       <%# f.button "Book", class: "btn btn-primary", id: "booking-confirmation" %>
       <% end %>
-      <button id="booking-confirmation" class="btn btn-primary">Book</button>
+      <button id="booking-confirmation" class="btn btn-outline-success btn-block">Book</button>
     </div>
   </div>
 
@@ -41,4 +41,5 @@
     data-marker="<%= @marker.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+</div>
 </div>
