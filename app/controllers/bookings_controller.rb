@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @user = current_user
     @booking.user = @user
+    @booking.status = 'requested'
     @booking.equipment = @equipment
     if @booking.save!
       redirect_to profile_path

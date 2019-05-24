@@ -2,6 +2,7 @@ class Equipment < ApplicationRecord
   has_many :bookings
   has_many :reviews, dependent: :destroy
   has_many :equipment_attachments, dependent: :destroy
+  has_many :bookings
   belongs_to :user
   include PgSearch
   pg_search_scope :global_search,
@@ -9,6 +10,7 @@ class Equipment < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  
 
   accepts_nested_attributes_for :equipment_attachments
 
